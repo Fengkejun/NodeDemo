@@ -4,7 +4,7 @@ const path = require('path');
 const regStyle = /<style>[\s\S]*<\/style>/  //定义样式的正则
 const regScript =/<script>[\s\S]*<\/script>/ // 定义脚本的正则
 // 读取文件
-fs.readFile(path.join(__dirname,'../txtFiles','index.html'), 'utf8', function(err, dataStr){
+fs.readFile(path.join(__dirname,'../../txtFiles','index.html'), 'utf8', function(err, dataStr){
     if(err){
         return console.log('读取文件失败！'+err.message);
     }
@@ -22,7 +22,7 @@ function resolveCss(htmlStr){
    const newCSS = r1[0].replace('<style>','').replace('</style>','')
 //    console.log(newCSS)
 // 将提取的css写入到clock目录中的index.html文件中
-    fs.writeFile(path.join(__dirname,'../clock','index.css'),newCSS,function(err){
+    fs.writeFile(path.join(__dirname,'../../clock','index.css'),newCSS,function(err){
         if(err){
             return console.log('写入css失败！'+err.message);
         }
@@ -37,7 +37,7 @@ function resolveScript(htmlStr){
    const newJS = r2[0].replace('<script>',' ').replace('</script>',' ')
 //    console.log(newJS)
 // 将提取的js写入到clock目录中的index.html文件中
-fs.writeFile(path.join(__dirname,'../clock','index.js'),newJS,function(err){
+fs.writeFile(path.join(__dirname,'../../clock','index.js'),newJS,function(err){
     if(err){
         return console.log('写入js失败！'+err.message);
     }
@@ -50,7 +50,7 @@ function resolveHtml(htmlStr){
    const newHtml = htmlStr.replace(regStyle,'<link rel="stylesheet" href="./index.css">').replace(regScript,'<script src="./index.js"></script>')
 //    console.log(newHtml)
 // 将替换后的内容，写入到clock目录中的index.html文件中
-fs.writeFile(path.join(__dirname,'../clock/index.html'),newHtml,function(err){ 
+fs.writeFile(path.join(__dirname,'../../clock/index.html'),newHtml,function(err){ 
     if(err){
         return console.log('写入html失败！'+err.message);
     }

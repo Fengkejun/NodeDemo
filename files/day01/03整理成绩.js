@@ -1,5 +1,5 @@
 const fs =require('fs');
-fs.readFile('../txtFiles/成绩.txt', 'utf8', function(err, dataStr){
+fs.readFile('../../txtFiles/成绩.txt', 'utf8', function(err, dataStr){
     if(err){
         return console.log('读取文件失败！'+err.message);
     }
@@ -14,7 +14,7 @@ fs.readFile('../txtFiles/成绩.txt', 'utf8', function(err, dataStr){
     const newStr = arrNew.join('\r\n');
     console.log(newStr);
     // 2.把转换后的内容，写入到新文件中
-    fs.writeFile('../txtFiles/成绩-ok.txt', newStr, function(err){
+    fs.writeFile('../../txtFiles/成绩-ok.txt', newStr, function(err){
         if(err){
             return console.log('写入文件失败！' + err.message);
         }
@@ -22,7 +22,7 @@ fs.readFile('../txtFiles/成绩.txt', 'utf8', function(err, dataStr){
     })
    
 }) 
-fs.readFile('../txtFiles/成绩-ok.txt', 'utf8',function(err,dataStr){
+fs.readFile('../../txtFiles/成绩-ok.txt', 'utf8',function(err,dataStr){
         if(err){
             return console.log('读取文件失败！' + err.message);
         }

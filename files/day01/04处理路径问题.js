@@ -5,7 +5,7 @@ const path = require('path');
 // path.resolve(): 将路径或路径片段的序列解析为绝对路径
 // path.basename(): 返回路径的最后一部分
 // path.extname(): 返回路径的扩展名
-const pathStr = path.resolve(__dirname,'../txtFiles', '11.txt')
+const pathStr = path.resolve(__dirname,'../../txtFiles', '11.txt')
 fs.readFile(pathStr, 'utf8', function(err, dataStr){
     if(err){
         return console.log('读取文件失败！'+err.message);
