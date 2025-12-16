@@ -1,0 +1,5 @@
+const Time = require('./10dataFormat')
+const dt = new Date()
+console.log(dt)
+const newDT= Time.DataFormat(dt)
+console.log(newDT)
