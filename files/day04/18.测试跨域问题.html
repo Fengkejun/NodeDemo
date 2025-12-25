@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="GetBtn">GET</button>
+    <button id="PostBtn">POST</button>
+    <button id="DeleteBtn">Delete</button>
+    <button id="JsonpBtn">JSONP</button>
+    <script>
+
+        $(function() {
+            // 1. 测试GET接口
+          $('#GetBtn').on('click',function() {
+            $.ajax({
+                type:'GET',
+                url:'http://127.0.0.1/api/get',
+                data:{
+                    name:'zs',
+                    age:18,
+                    gander:'男'
+                },
+                success:function(res){
+                    console.log(res)
+                }
+            })
+}) 
+            // 2.测试POST接口 
+            $('#PostBtn').on('click',function(){
+                $.ajax({
+                    type:'POST',
+                    url:'http://127.0.0.1/api/post',
+                    data:{
+                        bookName:'三国演义',
+                        author:'罗贯中',
+                        
+                    },
+                     success:function(res){
+                    console.log(res)
+                }
+                })
+            })
+            // 3.测试DELETE接口
+            $('#DeleteBtn').on('click',function(){
+                $.ajax({
+                    type:'DELETE',
+                    url:'http://127.0.0.1/api/delete',
+                    success:function(res){
+                    console.log(res)
+                }
+                })
+            })
+            // 4.测试JSONP接口
+            $('#JsonpBtn').on('click',function(){
+                $.ajax({
+                    type:'GET',
+                    url:'http://127.0.0.1/api/jsonp',
+                    dataType:'jsonp', //!!!表示要发起jsonp请求
+                    success:function(res){
+                    console.log(res)
+                }
+            })
+            })
+    
+
+        })
+    </script>
+</body>
+</html>
